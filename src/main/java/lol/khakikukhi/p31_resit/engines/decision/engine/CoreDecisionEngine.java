@@ -1,16 +1,16 @@
-package lol.khakikukhi.p31_resit.decision.engine;
+package lol.khakikukhi.p31_resit.engines.decision.engine;
 
-import lol.khakikukhi.p31_resit.decision.Decision;
-import lol.khakikukhi.p31_resit.decision.RequestContext;
-import lol.khakikukhi.p31_resit.decision.ResponseContext;
+import lol.khakikukhi.p31_resit.engines.DecisionEngine;
+import lol.khakikukhi.p31_resit.engines.decision.RequestContext;
+import lol.khakikukhi.p31_resit.engines.decision.ResponseContext;
 
 import java.util.concurrent.atomic.AtomicLong;
 
 public abstract class CoreDecisionEngine implements DecisionEngine {
-    private AtomicLong totalRejected = new AtomicLong(0);
-    private AtomicLong totalDegraded = new AtomicLong(0);
-    private AtomicLong totalAllowed = new AtomicLong(0);
-    private AtomicLong totalRequests = new AtomicLong(0);
+    private final AtomicLong totalRejected = new AtomicLong(0);
+    private final AtomicLong totalDegraded = new AtomicLong(0);
+    private final AtomicLong totalAllowed = new AtomicLong(0);
+    private final AtomicLong totalRequests = new AtomicLong(0);
 
     public abstract Decision handleDecide(RequestContext context);
 
