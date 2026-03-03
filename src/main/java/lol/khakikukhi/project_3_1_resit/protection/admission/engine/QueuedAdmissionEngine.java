@@ -59,11 +59,10 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
     }
 
     private void updateLimiter(AdmissionEntry entry) {
-        Decision decision = entry.getDecision();
-
         Limiter limiter = this.limiterMap.computeIfAbsent(entry.getContext().path(), k -> new AdaptiveLimiter());
 
-        switch (entry.getDecision()) {
+        Decision decision = entry.getDecision();
+        switch (decision) {
             case ALLOW -> limiter.incrementAccepted();
             case DEGRADE -> limiter.incrementDegraded();
         }

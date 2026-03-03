@@ -19,7 +19,7 @@ public class AdaptiveLimiter implements Limiter {
     }
 
     public AdaptiveLimiter() {
-        this(1, 100, 100);
+        this(1, 50, 50);
     }
 
     @Override
