@@ -1,4 +1,4 @@
-package lol.khakikukhi.p31_resit;
+package lol.khakikukhi.project_3_1_resit;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

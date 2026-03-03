@@ -1,8 +1,8 @@
-package lol.khakikukhi.p31_resit.engines.decision.engine;
+package lol.khakikukhi.project_3_1_resit.protection.decision.engine;
 
-import lol.khakikukhi.p31_resit.engines.DecisionEngine;
-import lol.khakikukhi.p31_resit.engines.decision.RequestContext;
-import lol.khakikukhi.p31_resit.engines.decision.ResponseContext;
+import lol.khakikukhi.project_3_1_resit.protection.RequestContext;
+import lol.khakikukhi.project_3_1_resit.protection.ResponseContext;
+import lol.khakikukhi.project_3_1_resit.protection.decision.Decision;
 
 import java.util.concurrent.atomic.AtomicLong;
 
