@@ -1,5 +1,10 @@
-package lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency.percentile;
+package lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency;
 
+import lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency.rolling.PercentileStatistic;
+
+//ratio < 2 → ALLOW
+//ratio < 5 → DEGRADE
+//ratio ≥ 5 → REJECT
 public class PercentilePair {
     private final PercentileStatistic p50Statistic;
     private final PercentileStatistic p95Statistic;
@@ -28,3 +33,4 @@ public class PercentilePair {
     }
 
 }
+

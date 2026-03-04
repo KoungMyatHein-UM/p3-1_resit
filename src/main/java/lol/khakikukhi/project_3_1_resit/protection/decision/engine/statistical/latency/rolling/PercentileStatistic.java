@@ -1,6 +1,4 @@
-package lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency.percentile;
-
-import lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency.rolling.RollingStatistic;
+package lol.khakikukhi.project_3_1_resit.protection.decision.engine.statistical.latency.rolling;
 
 import java.util.Arrays;
 
