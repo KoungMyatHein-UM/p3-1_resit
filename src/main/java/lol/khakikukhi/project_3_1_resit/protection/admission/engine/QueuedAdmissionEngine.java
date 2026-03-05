@@ -33,7 +33,6 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
     @Override
     public void submit(AdmissionEntry entry) {
         Decision decision = decisionEngine.decide(entry.getContext());
-        decision = Decision.DEGRADE; // FOR TESTING ONLY
 
         entry.setDecision(decision);
 

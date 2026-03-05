@@ -15,9 +15,11 @@ import reactor.core.publisher.Mono;
 public class AdmissionFilter implements GlobalFilter, Ordered {
 
     private final AdmissionEngine admissionEngine;
+    private final EndpointResolver endpointResolver;
 
-    public AdmissionFilter(QueuedAdmissionEngine admissionEngine) {
+    public AdmissionFilter(QueuedAdmissionEngine admissionEngine, EndpointResolver endpointResolver) {
         this.admissionEngine = admissionEngine;
+        this.endpointResolver = endpointResolver;
     }
 
     @Override
@@ -25,9 +27,11 @@ public class AdmissionFilter implements GlobalFilter, Ordered {
 
         long arrivalTime = System.nanoTime();
 
+        String resolvedPath = endpointResolver.resolve(exchange.getRequest().getPath().value());
+
         RequestContext requestContext = new RequestContext(
                 exchange.getRequest().getMethod().name(),
-                exchange.getRequest().getPath().value(),
+                resolvedPath,
                 exchange.getRequest()
                         .getRemoteAddress()
                         .getAddress()
