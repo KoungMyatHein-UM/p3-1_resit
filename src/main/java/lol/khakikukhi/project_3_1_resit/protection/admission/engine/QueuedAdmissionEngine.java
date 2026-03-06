@@ -23,7 +23,7 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
     private final Map<String, Queue<AdmissionEntry>> queueMap = new ConcurrentHashMap<>();
     private final Map<String, Limiter> limiterMap = new ConcurrentHashMap<>();
 
-    private final int ttlMillis = 2000;
+    private final int ttlMillis = 5000;
     private final int tickIntervalMillis = 100;
 
     public QueuedAdmissionEngine(DecisionEngine decisionEngine) {
