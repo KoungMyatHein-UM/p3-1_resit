@@ -95,12 +95,10 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
 
         if (ageMillis > ttlMillis) {
             ResponseContext response = new ResponseContext(503, 0);
-            doFeedback(entry, response);
             entry.getSink().error(new RuntimeException("Request expired"));
             return;
         } else if (entry.getDecision() == Decision.REJECT) {
             ResponseContext response = new ResponseContext(403, 0);
-            doFeedback(entry, response);
             entry.getSink().error(new RuntimeException("Request rejected"));
             return;
         }
@@ -110,8 +108,7 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
         entry.getChain()
                 .filter(entry.getExchange())
                 .doOnSuccess(v -> {
-                    long latencyMillis =
-                            (System.nanoTime() - start) / 1_000_000;
+                    long latencyMillis = (System.nanoTime() - start) / 1_000_000;
 
                     var statusObj = entry.getExchange().getResponse().getStatusCode();
                     int status = statusObj != null ? statusObj.value() : 200;
