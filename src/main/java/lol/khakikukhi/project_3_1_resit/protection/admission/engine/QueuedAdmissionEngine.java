@@ -120,7 +120,9 @@ public class QueuedAdmissionEngine implements AdmissionEngine {
                     entry.getSink().success();
                 })
                 .doOnError(error -> {
-                    ResponseContext response = new ResponseContext(500, 0);
+                    long latencyMillis = (System.nanoTime() - start) / 1_000_000;
+
+                    ResponseContext response = new ResponseContext(500, latencyMillis);
                     doFeedback(entry, response);
                     entry.getSink().error(error);
                 })
